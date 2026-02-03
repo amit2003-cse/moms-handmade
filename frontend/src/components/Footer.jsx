@@ -25,7 +25,7 @@ const Footer = () => {
             <h4 className="text-lg font-bold text-white mb-6 uppercase tracking-wider border-b-2 border-orange-600 inline-block pb-1">Quick Links</h4>
             <ul className="space-y-3">
               {['Home', 'Shop Now', 'About Us', 'Contact'].map((item, index) => {
-                const path = item === 'Home' ? '/' : item === 'Shop Now' ? '/products' : `/${item.toLowerCase().replace(' ', '')}`;
+                const path = item === 'Home' ? '/': item === 'About Us' ? '/about' : item === 'Shop Now' ? '/products' : `/${item.toLowerCase().replace(' ', '')}`;
                 return (
                   <li key={index}>
                     <Link 

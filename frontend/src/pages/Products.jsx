@@ -1,30 +1,25 @@
 import { useEffect, useState, useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom'; // 👈 IMPORT THIS
+import { useSearchParams } from 'react-router-dom';
 import api from '../services/api';
 import ProductCard from '../components/ProductCard';
 import toast from 'react-hot-toast';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaSearch, FaFilter, FaSortAmountDown, FaTimes } from 'react-icons/fa';
+import { FaSearch, FaSortAmountDown, FaTimes } from 'react-icons/fa'; // FaFilter hata diya agar use nahi ho raha
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   
-  // 1️⃣ URL se Category read karne ke liye Hook
   const [searchParams, setSearchParams] = useSearchParams();
   
-  // States
   const [searchQuery, setSearchQuery] = useState('');
   const [sortOrder, setSortOrder] = useState('default');
   
-  // Initial category URL se lo, agar nahi hai toh 'All'
   const categoryFromUrl = searchParams.get('category');
   const [selectedCategory, setSelectedCategory] = useState(categoryFromUrl || 'All');
 
-  // Backend Schema ke hisaab se Categories (Exact Spelling)
   const categories = ['All', 'Sweets', 'Spicy', 'Crunchy'];
 
-  // 2️⃣ API Call (Saara data ek baar le aao)
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -40,7 +35,6 @@ const Products = () => {
     fetchProducts();
   }, []);
 
-  // 3️⃣ Jab URL change ho (Home page se click karne par), State update karo
   useEffect(() => {
     if (categoryFromUrl) {
       setSelectedCategory(categoryFromUrl);
@@ -49,26 +43,22 @@ const Products = () => {
     }
   }, [categoryFromUrl]);
 
-  // Function to update Category and URL both
   const handleCategoryChange = (cat) => {
     setSelectedCategory(cat);
     if (cat === 'All') {
-      setSearchParams({}); // Remove query param
+      setSearchParams({});
     } else {
-      setSearchParams({ category: cat }); // Set query param
+      setSearchParams({ category: cat });
     }
   };
 
-  // 🧠 MAIN LOGIC: Filtering & Sorting
   const filteredProducts = useMemo(() => {
     let result = products;
 
-    // A. Filter by Category (Exact Match with Mongoose Schema)
     if (selectedCategory !== 'All') {
       result = result.filter(p => p.category === selectedCategory);
     }
 
-    // B. Filter by Search (Name or Description)
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       result = result.filter(p => 
@@ -78,11 +68,8 @@ const Products = () => {
       );
     }
 
-    // C. Sort by Price
-    // Helper: Price nikaalne ka tareeka (kyunki pricePerWeight object hai)
     const getPrice = (p) => {
       if (!p.pricePerWeight) return 0;
-      // 250g ka price uthao, ya jo bhi pehla available ho
       return p.pricePerWeight['250g'] || Object.values(p.pricePerWeight)[0] || 0;
     };
 
@@ -95,7 +82,6 @@ const Products = () => {
     return result;
   }, [products, searchQuery, selectedCategory, sortOrder]);
 
-  // 🦴 Skeleton Loader
   const SkeletonCard = () => (
     <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 animate-pulse">
       <div className="h-40 bg-gray-200 rounded-lg mb-4"></div>
@@ -123,8 +109,8 @@ const Products = () => {
 
       <div className="container mx-auto px-4 pb-12">
         
-        {/* 🎛️ Controls Section */}
-        <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-8 flex flex-col md:flex-row gap-4 justify-between items-center sticky top-20 z-30 transition-all duration-300">
+        {/* ✅ FIX: 'sticky top-20 z-30' hata diya. Ab ye Normal (Static) behave karega */}
+        <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-8 flex flex-col md:flex-row gap-4 justify-between items-center">
           
           {/* Search Bar */}
           <div className="relative w-full md:w-1/3">

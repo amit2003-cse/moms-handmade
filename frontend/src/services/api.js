@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Backend ka address (Tumhare document ke hisaab se)
-const API_URL = 'http://localhost:5000/api';
+// ✅ Logic: Agar Environment Variable hai toh wo lo, nahi toh Localhost lo
+const API_URL = (import.meta.env.VITE_API_URL || 'http://localhost:5000') + '/api';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -10,18 +10,15 @@ const api = axios.create({
   },
 });
 
-// ✅ INTERCEPTOR: Har request ke saath Token attach karega
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token'); // Browser se token uthao
+    const token = localStorage.getItem('token');
     if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`; // Header me jod do
+      config.headers['Authorization'] = `Bearer ${token}`;
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
 export default api;

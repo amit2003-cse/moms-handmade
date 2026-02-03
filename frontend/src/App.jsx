@@ -15,6 +15,7 @@ import Footer from "./components/Footer"; // ✅ Imported
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
+import ScrollToTop from './components/ScrollToTop'; // 👈 IMPORT THIS
 
 // ✅ Admin Pages Imports
 import AdminDashboard from './pages/admin/Dashboard';
@@ -41,6 +42,7 @@ function App() {
   return (
     // ✅ FIX 1: 'flex' aur 'flex-col' add kiya taaki footer bottom pe stick kare
     <div className="flex flex-col min-h-screen bg-orange-50 font-sans text-gray-900">
+      <ScrollToTop />
       <Toaster position="top-center" />
       
       <Navbar />

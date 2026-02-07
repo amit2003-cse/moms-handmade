@@ -81,7 +81,7 @@ const Chatbot = () => {
           <p className="text-sm text-gray-600 mb-4">Still need help? Reach out to us directly.</p>
           
           <div className="space-y-3">
-            <a href="https://wa.me/911904529" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-green-50 hover:bg-green-100 rounded-xl text-green-700 font-bold transition">
+            <a href="https://wa.me/919110904529" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-3 bg-green-50 hover:bg-green-100 rounded-xl text-green-700 font-bold transition">
               <FaWhatsapp className="text-xl" /> Chat on WhatsApp
             </a>
             <a href="mailto:amit4321sg@gmail.com" className="flex items-center gap-3 p-3 bg-blue-50 hover:bg-blue-100 rounded-xl text-blue-700 font-bold transition">

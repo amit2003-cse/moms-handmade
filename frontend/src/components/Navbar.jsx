@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-orange-600 text-white shadow-lg sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-3">
+      <div className="container mx-auto px-4 py-6">
         
         {/* UPPER ROW: Logo + Actions */}
         <div className="flex justify-between items-center">

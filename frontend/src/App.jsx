@@ -16,7 +16,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import ScrollToTop from './components/ScrollToTop'; // 👈 IMPORT THIS
-
+import Chatbot from './components/Chatbot'; // 👈 Import This
 // ✅ Admin Pages Imports
 import AdminDashboard from './pages/admin/Dashboard';
 import AdminProducts from './pages/admin/AdminProducts';
@@ -108,7 +108,7 @@ function App() {
 
         </Routes>
       </div>
-
+      <Chatbot />
       {/* ✅ FIX 3: Footer yahan sabse niche add kiya */}
       <Footer />
       

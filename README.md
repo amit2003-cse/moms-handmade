@@ -192,3 +192,66 @@ Protected routes:
 /wishlist
 /orders
 /admin
+admin
+📸 Screenshots
+
+Add screenshots here:
+
+Home Page
+
+Product Listing
+
+Cart Page
+
+Checkout Page
+
+Admin Dashboard
+
+📈 Future Improvements
+
+Google OAuth Login
+
+Email notifications (Resend)
+
+Payment failure handling
+
+Webhooks for payment verification
+
+Order tracking system
+
+Reviews & ratings
+
+🧑‍💻 Author
+
+Amit
+
+Full Stack Developer (MERN)
+
+GitHub:
+https://github.com/yourusername
+
+⭐ Support
+
+If you like this project, please give it a ⭐ on GitHub.
+
+
+---
+
+## 🚀 Pro Tip
+
+GitHub README me **ye add karoge to aur professional lagega:**
+
+- project screenshots  
+- live demo link  
+- architecture diagram  
+
+---
+
+Agar chaho to main tumhare project ke liye:
+
+- ⭐ **FAANG-level README**
+- 📸 **screenshots layout**
+- 🎯 **portfolio description**
+- 🔥 **LinkedIn launch post**
+
+bhi bana deta hoon.

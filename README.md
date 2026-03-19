@@ -1,257 +1,187 @@
-# 🍪 Mom's Handmade
+<div align="center">
+  <img src="https://img.icons8.com/color/96/000000/cookies.png" alt="Cookies Logo" width="80"/>
+  <h1>🍪 Mom's Handmade</h1>
+  <p><strong>A Production-Ready Full-Stack MERN E-Commerce Web Application</strong></p>
 
-A full-stack **MERN e-commerce web application** for selling homemade snacks online.  
-Users can browse products, add items to cart/wishlist, place orders, and pay using **Razorpay or Cash on Delivery (COD)**.
-
-This project demonstrates a complete real-world e-commerce flow including **authentication, cart management, order processing, admin dashboard, and payment gateway integration.**
-
----
-
-## 🚀 Live Demo
-Frontend: (Add your deployed link)  
-Backend API: (Add your deployed link)
-
----
-
-# 🧑‍💻 Tech Stack
-
-### Frontend
-- React (Vite)
-- Tailwind CSS
-- React Router
-- Axios
-- React Hot Toast
-
-### Backend
-- Node.js
-- Express.js
-- MongoDB Atlas
-- Mongoose
-- JWT Authentication
-
-### Payment
-- Razorpay Payment Gateway
-- Cash on Delivery (COD)
+  <p>
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node" />
+    <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="Express" />
+    <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind" />
+  </p>
+</div>
 
 ---
 
-# ✨ Features
+A robust and scalable e-commerce platform dedicated to selling high-quality homemade snacks. Designed with a focus on **performance**, **clean architecture**, and an exceptional **user experience (UX)**. Built to demonstrate enterprise-level web development practices, this application manages the entirety of the e-commerce lifecycle—from secure authentication to payment processing and administrative inventory control.
 
-## 👤 User Features
+## 🌟 Live Demo
+- **Frontend Link:** https://moms-handmade.netlify.app/
+- **Backend API:** https://moms-handmade-backend.onrender.com/
 
-- User Registration & Login (JWT Auth)
-- Google Login (optional)
-- Browse homemade snacks
-- Product weight selection (250g / 500g / 1kg)
-- Dynamic pricing
-- Add to Cart
-- Add to Wishlist
-- Update item quantity
-- Remove items
-- Checkout with shipping details
-- Razorpay online payment
-- Cash on Delivery
-- Order history tracking
+*(Note: Provide snapshots below to give recruiters a quick glance without needing to log in!)*
 
 ---
 
-## 🛍️ Product Features
+## 🚀 Key Features
 
-- Product categories
-- Product tags (Best Seller / New Launch)
-- Dynamic weight-based pricing
-- Lazy loaded images
-- Responsive product grid
+### 🛒 For the Customers
+* **Secure Authentication**: JWT-based email/password authentication alongside seamless **Google OAuth** integration.
+* **Persistent Cart & Wishlist**: State management synchronized with the backend database or local storage, allowing users to transition fluidly between sessions.
+* **Smart Shopping Ecosystem**: Support for multiple product weight variants (e.g., 250g, 500g, 1kg) with dynamic price calculation algorithms.
+* **Payment Gateway Integration**: Embedded **Razorpay Integration** for processing secure digital real-time transactions and a smooth **Cash on Delivery (COD)** checkout flow.
+* **Modern Interactive UI**: Crafted with React 19 and styled utilizing **Tailwind CSS**. Micro-interactions and transition animations are powered by **Framer Motion**.
+* **AI-Powered Customer Support**: Integrated front-end **Chatbot** feature to handle automated customer engagements.
+* **Automated Emails**: Integrated with the **Resend API** for fast transactional email dispatching.
 
----
-
-## 🛒 Cart System
-
-- Persistent cart for logged-in users
-- Guest cart using localStorage
-- Backend synchronized cart
-- Quantity increment/decrement
-- Auto cart clearing after order
-
----
-
-## 💳 Payment System
-
-Integrated **Razorpay Payment Gateway**
-
-Flow:
-1. Backend creates Razorpay order
-2. Frontend opens Razorpay popup
-3. User completes payment
-4. Backend verifies payment signature
-5. Order stored in database
-6. Cart cleared automatically
-
-Supports:
-- Razorpay Online Payment
-- Cash on Delivery
+### 🛡️ For the Administrators
+* **Role-Based Access Control (RBAC)**: Securely limits application boundaries exclusively for administrators.
+* **Complete Inventory Control**: Powerful CRUD (Create, Read, Update, Delete) dashboards for seamless modification of the product catalog.
+* **Order fulfillment & Tracking**: Real-time status modification capability (ex. Pending &rarr; Shipped &rarr; Delivered) tracked on the central Admin dashboard.
+* **User Management Dashboard**: Centralized view for administrators to track and manage registered users.
 
 ---
 
-## 📦 Order System
+## 🛠 Tech Stack & Dependencies
 
-- Shipping address form
-- Order summary
-- Order status tracking
-- Payment status tracking
+### **Frontend Architecture**
+* **Core:** React 19, Vite
+* **Styling:** Tailwind CSS, Framer Motion
+* **Routing:** React Router v7
+* **Data Fetching:** Axios
+* **Tooling & State:** React Hot Toast, JWT-Decode, `@react-oauth/google`
 
-Order statuses:
-- Pending
-- Processing
-- Shipped
-- Delivered
-- Cancelled
-
----
-
-## 🧑‍💼 Admin Features
-
-Admin dashboard allows:
-
-- Add products
-- Edit products
-- Delete products
-- View all orders
-- Update order status
-- View registered users
+### **Backend Infrastructure**
+* **Server:** Node.js, Express.js (v5)
+* **Database & ORM:** MongoDB Atlas, Mongoose
+* **Security:** JSON Web Tokens (JWT), `bcryptjs`, CORS enablement
+* **3rd Party API Integration:** Razorpay SDK (Payments), Resend SDK (Email Automation)
 
 ---
 
-# 📂 Project Structure
+## 📐 System Architecture
+
+The application strictly adheres to the **MVC (Model-View-Controller)** pattern on the backend while utilizing a **Service/Context-driven component pattern** on the frontend to maintain maximum code modularity.
+
+```text
 moms_handmade/
-│
 ├── frontend/
-│ ├── components
-│ ├── pages
-│ ├── context
-│ ├── services
-│ └── App.jsx
+│   ├── src/
+│   │   ├── components/  # Extracted, reusable UI elements (Navbars, Cards, Modals)
+│   │   ├── pages/       # High-level route views (Checkout, Dashboard, Products)
+│   │   ├── services/    # Business logic encapsulation (API Fetch wrappers)
+│   │   └── context/     # React Context APIs managing global states
 │
 ├── backend/
-│ ├── config
-│ ├── controllers
-│ ├── models
-│ ├── routes
-│ ├── middleware
-│ └── server.js
+│   ├── controllers/     # Independent functional logic processing requests endpoints
+│   ├── models/          # Mongoose Schemas (User, Order, Product, Cart)
+│   ├── routes/          # Express route declarations explicitly mapped to controllers
+│   ├── middleware/      # Application-layer functions handling authorization/validation
+│   └── config/          # Environment configuration & DB connection setups
+```
 
 ---
 
-# ⚙️ Installation
+## 🏃 Getting Started (Local Development Environment)
 
-## 1️⃣ Clone the repository
+### Prerequisites
+- Node.js (`v18+`)
+- MongoDB connection string (Atlas or Local)
+- Razorpay Test API Keys
+- Resend API Keys
 
+### Installation & Execution Guide
+
+**1. Clone the repository**
 ```bash
 git clone https://github.com/yourusername/moms-handmade.git
 cd moms-handmade
-2️⃣ Install Backend Dependencies
+```
 
+**2. Configure the Backend**
+```bash
 cd backend
 npm install
-
-3️⃣ Setup Backend Environment
-
-Create .env
-
+```
+Create a `.env` file within the `backend/` directory:
+```env
 PORT=5000
-MONGO_URI=your_mongodb_connection
-JWT_SECRET=your_secret
+MONGO_URI=your_mongodb_cluster_connection_string
+JWT_SECRET=your_hyper_secure_jwt_secret_key
 
-RAZORPAY_KEY_ID=your_key
-RAZORPAY_KEY_SECRET=your_secret
-4️⃣ Start Backend
+RAZORPAY_KEY_ID=your_razorpay_test_key_id
+RAZORPAY_KEY_SECRET=your_razorpay_test_key_secret
+
+RESEND_API_KEY=your_resend_api_key
+```
+Spin up the backend development server:
+```bash
 npm run dev
-5️⃣ Install Frontend Dependencies
+```
+
+**3. Configure the Frontend**
+```bash
 cd ../frontend
 npm install
-6️⃣ Setup Frontend Environment
-
-Create .env
-
+```
+Create a `.env` file within the `frontend/` directory:
+```env
 VITE_API_BASE_URL=http://localhost:5000/api
-VITE_RAZORPAY_KEY=your_public_key
-7️⃣ Start Frontend
+VITE_RAZORPAY_KEY=your_razorpay_public_test_key
+VITE_GOOGLE_CLIENT_ID=your_google_oauth_client_id
+```
+Launch the frontend client:
+```bash
 npm run dev
-🧪 Seed Dummy Data
-
-Populate database with sample products.
-
-node seed/productSeed.js
-🔐 Authentication
-
-Uses JWT based authentication
-
-Protected routes:
-
-/cart
-/wishlist
-/orders
-/admin
-admin
-📸 Screenshots
-
-Add screenshots here:
-
-Home Page
-
-Product Listing
-
-Cart Page
-
-Checkout Page
-
-Admin Dashboard
-
-📈 Future Improvements
-
-Google OAuth Login
-
-Email notifications (Resend)
-
-Payment failure handling
-
-Webhooks for payment verification
-
-Order tracking system
-
-Reviews & ratings
-
-🧑‍💻 Author
-
-Amit
-
-Full Stack Developer (MERN)
-
-GitHub:
-https://github.com/yourusername
-
-⭐ Support
-
-If you like this project, please give it a ⭐ on GitHub.
-
+```
 
 ---
 
-## 🚀 Pro Tip
+## 🔒 Selected API Endpoints
 
-GitHub README me **ye add karoge to aur professional lagega:**
+A quick overview of key application-layer endpoints designed for scalability.
 
-- project screenshots  
-- live demo link  
-- architecture diagram  
+| HTTP Method | API Endpoint | Description | Middleware/Access |
+| ----------- | ------------ | ----------- | ----------------- |
+| `POST` | `/api/auth/login` | Authenticate user & dispense JWT | Public |
+| `POST` | `/api/auth/register`| Register brand new customer account | Public |
+| `GET`  | `/api/products` | Retrieve catalog entries | Public |
+| `POST` | `/api/payment/createOrder` | Initialize Razorpay payment intent struct | `verifyToken` |
+| `GET` | `/api/admin/orders`| Retrieve centralized tracking records | `verifyAdmin` |
 
 ---
 
-Agar chaho to main tumhare project ke liye:
+## 📸 Platform Screenshots
 
-- ⭐ **FAANG-level README**
-- 📸 **screenshots layout**
-- 🎯 **portfolio description**
-- 🔥 **LinkedIn launch post**
+*(Add your high-resolution PNGs here highlighting the elegant UI/UX design to immediately capture recruiter interest)*
 
-bhi bana deta hoon.
+- **Home Page / Infinite Scroll**
+- **Dynamic Fast Checkout Flow**
+- **Admin Command Center**
+- **Authentication Gateway**
+
+---
+
+## 📈 Future Roadmap & Scalability Ideas
+
+- [ ] **Webhooks Implementation:** For robust background verification of Razorpay asynchronous events.
+- [ ] **Redis Caching:** Memory-based caching optimization for generic product query fetches.
+- [ ] **Dockerization:** Containerizing the Node and React environments to ensure platform-agnostic setups.
+- [ ] **Product Reviews System:** Enable community feedback to increase product-market fit.
+
+---
+
+<div align="center">
+  <h3>🧑‍💻 Let's Connect!</h3>
+  <p>Architected and Developed by <b>Amit</b></p>
+  <p>A passionate Full Stack Engineer (MERN) obsessed with crafting scalable, business-centric web architectures.</p>
+
+  <p>
+    <a href="https://github.com/amit2003-cse">GitHub Profile</a> •
+    <a href="https://www.linkedin.com/in/amit-kumar-1a0b3c2d3/">LinkedIn Profile</a> •
+    <a href="mailto:amit4321sg@gmail.com">Email Me</a>
+  </p>
+  
+  <p><i>If you found this integration helpful or are looking for a highly capable developer for your engineering team, feel free to reach out or drop a ⭐ on this repo!</i></p>
+</div>

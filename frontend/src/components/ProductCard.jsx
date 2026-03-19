@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 relative group flex flex-col">
+    <div className="bg-white rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-orange-50 relative group flex flex-col">
       
       {/* Product Image - Mobile: h-32, Desktop: h-48 */}
       <div className="h-32 sm:h-48 overflow-hidden relative w-full bg-gray-100">
@@ -31,6 +31,7 @@ const ProductCard = ({ product }) => {
         {/* Heart Button - Thoda chota kiya mobile ke liye */}
         <button 
           onClick={() => toggleWishlist(product)}
+          aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
           className={`absolute top-2 right-2 sm:top-3 sm:right-3 p-1.5 sm:p-2 rounded-full shadow-md transition transform active:scale-90
             ${isWishlisted ? 'bg-red-50 text-red-500' : 'bg-white text-gray-400 hover:text-red-500'}
           `}
@@ -69,7 +70,8 @@ const ProductCard = ({ product }) => {
         {/* Add to Cart Button */}
         <button 
           onClick={handleAddToCart}
-          className="w-full mt-3 bg-orange-600 text-white py-1.5 sm:py-2 rounded-lg font-semibold text-xs sm:text-base flex items-center justify-center gap-1.5 hover:bg-orange-700 transition active:scale-95"
+          aria-label="Add to cart"
+          className="w-full mt-3 bg-orange-600 text-white py-1.5 sm:py-2 rounded-lg font-semibold text-xs sm:text-base flex items-center justify-center gap-1.5 hover:bg-orange-700 hover:shadow-md transition active:scale-95"
         >
           <FaShoppingCart className="text-xs sm:text-base" /> 
           <span>Add</span> <span className="hidden sm:inline">to Cart</span>

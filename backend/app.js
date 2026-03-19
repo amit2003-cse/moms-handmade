@@ -6,6 +6,7 @@ import userRoutes from "./routes/userRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
 import wishlistRoutes from "./routes/wishlistRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
+import paymentRoutes from "./routes/paymentRoutes.js";
 import adminProductRoutes from "./routes/adminProductRoutes.js";
 import adminOrderRoutes from "./routes/adminOrderRoutes.js";
 import adminUserRoutes from "./routes/adminUserRoutes.js";
@@ -26,7 +27,7 @@ app.use("/api/admin/products", adminProductRoutes);
 app.use("/api/admin/orders", adminOrderRoutes);
 app.use("/api/admin/users", adminUserRoutes);
 app.use('/api/admin', dashboardRoutes);
-
+app.use("/api/payment", paymentRoutes);
 app.get("/api/health", (req, res) => {
   res.json({
     success: true,

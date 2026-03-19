@@ -21,7 +21,7 @@ export const toggleWishlist = async (req, res) => {
     });
   }
 
-  const exists = wishlist.products.includes(productId);
+  const exists = wishlist.products.some(id => id.toString() === productId);
 
   if (exists) {
     wishlist.products = wishlist.products.filter(

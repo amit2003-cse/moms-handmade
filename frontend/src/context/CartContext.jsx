@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useEffect } from "react";
 import { useAuth } from "./AuthContext";
 import api from "../services/api";
@@ -31,18 +32,7 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  /* ===============================
-     🟡 INITIAL LOAD (LOGIN / LOGOUT)
-  =============================== */
-  useEffect(() => {
-    if (user) {
-      fetchCartFromBackend();
-    } else {
-      const localCart =
-        JSON.parse(localStorage.getItem("guestCart")) || [];
-      setCart(localCart);
-    }
-  }, [user]);
+  // (Moved useEffect down below mergeGuestCart)
 
   /* ===============================
      👤 GUEST CART HELPER
@@ -51,6 +41,44 @@ export const CartProvider = ({ children }) => {
     setCart(newCart);
     localStorage.setItem("guestCart", JSON.stringify(newCart));
   };
+  
+  /* ===============================
+     🔄 MERGE GUEST CART ON LOGIN
+  =============================== */
+  const mergeGuestCart = async () => {
+    const localCart = JSON.parse(localStorage.getItem("guestCart")) || [];
+    if (localCart.length > 0) {
+      try {
+        for (const item of localCart) {
+          await api.post("/cart/add", {
+            productId: item.productId,
+            weight: item.weight,
+            quantity: item.quantity,
+          });
+        }
+        localStorage.removeItem("guestCart");
+        await fetchCartFromBackend();
+      } catch (error) {
+        console.error("Failed to merge guest cart", error);
+      }
+    } else {
+      await fetchCartFromBackend();
+    }
+  };
+
+  /* ===============================
+     🟡 INITIAL LOAD (LOGIN / LOGOUT)
+  =============================== */
+  useEffect(() => {
+    if (user) {
+      mergeGuestCart();
+    } else {
+      const localCart =
+        JSON.parse(localStorage.getItem("guestCart")) || [];
+      setCart(localCart);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   /* ===============================
      ➕ ADD / INCREASE QUANTITY
@@ -165,6 +193,7 @@ export const CartProvider = ({ children }) => {
         addToCart,
         decreaseQuantity,
         removeFromCart,
+        mergeGuestCart,
       }}
     >
       {children}

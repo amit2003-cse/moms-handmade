@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useAuth } from './AuthContext';
 import api from '../services/api';
@@ -48,6 +49,9 @@ export const WishlistProvider = ({ children }) => {
       return;
     }
 
+    // Save previous state for rollback
+    const previousWishlist = [...wishlist];
+
     try {
       const currentList = Array.isArray(wishlist) ? wishlist : [];
       const isAlreadyInWishlist = currentList.some(item => item._id === product._id);
@@ -65,7 +69,9 @@ export const WishlistProvider = ({ children }) => {
 
     } catch (error) {
       console.error(error);
-      toast.error("Something went wrong");
+      // Rollback to previous state on API failure
+      setWishlist(previousWishlist);
+      toast.error("Failed to update Wishlist, reverting changes.");
     }
   };
 

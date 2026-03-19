@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useState, useEffect, useContext } from 'react';
 import api from '../services/api';
 import toast from 'react-hot-toast';

@@ -31,7 +31,7 @@ const AdminOrders = () => {
       await api.put(`/admin/orders/${orderId}`, { status: newStatus });
       toast.success(`Order marked as ${newStatus}`);
       fetchOrders();
-    } catch (error) {
+    } catch {
       toast.error("Failed to update status");
     }
   };

@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaComments, FaTimes, FaShippingFast, FaCreditCard, FaShieldAlt, FaHeadset, FaWhatsapp, FaEnvelope, FaChevronLeft } from 'react-icons/fa';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(null); // 'delivery', 'payment', etc.
+  const [activeCategory, setActiveCategory] = useState(null);
   const chatRef = useRef(null);
 
-  // Close chat when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (chatRef.current && !chatRef.current.contains(event.target)) {
@@ -18,7 +18,6 @@ const Chatbot = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // FAQ Data
   const faqData = {
     delivery: {
       title: "Delivery Queries 🚚",
@@ -45,7 +44,7 @@ const Chatbot = () => {
   };
 
   const renderContent = () => {
-    // 1. Agar koi category select nahi hai (Main Menu)
+  
     if (!activeCategory) {
       return (
         <div className="space-y-3">

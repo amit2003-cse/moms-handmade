@@ -27,7 +27,16 @@ const MyOrders = () => {
       <h2 className="text-2xl font-bold mb-6">📦 My Orders</h2>
       
       {orders.length === 0 ? (
-        <p className="text-gray-500">You haven't placed any orders yet.</p>
+        <div className="flex flex-col items-center justify-center p-12 text-center bg-white border border-dashed border-gray-300 rounded-2xl mt-8">
+          <div className="bg-orange-50 p-6 rounded-full mb-4">
+            <span className="text-6xl drop-shadow-sm">📦</span>
+          </div>
+          <h3 className="text-2xl font-bold text-gray-800 mb-2">No Orders Yet</h3>
+          <p className="text-gray-500 mb-6 max-w-sm">Looks like you haven't treated yourself to our delicious handmade snacks.</p>
+          <a href="/products" className="bg-orange-600 text-white px-8 py-3 rounded-full font-bold hover:bg-orange-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            Start Shopping
+          </a>
+        </div>
       ) : (
         <div className="space-y-6">
           {orders.map((order) => (

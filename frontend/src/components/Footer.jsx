@@ -65,27 +65,27 @@ const Footer = () => {
             <ul className="space-y-4 mb-6">
               <li className="flex items-start gap-3 text-sm">
                 <FaMapMarkerAlt className="text-orange-500 mt-1 text-lg" />
-                <span>Model Town, Ludhiana, <br/> Punjab, India</span>
+                <span>Dhnabad, <br/> Jharkhand, India</span>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <FaPhoneAlt className="text-orange-500" />
-                <span>+91 98765 43210</span>
+                <span>+91 9110904529</span>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <FaEnvelope className="text-orange-500" />
-                <span>support@momshandmade.com</span>
+                <span>amit4321sg@gmail.com</span>
               </li>
             </ul>
 
             {/* Social Icons with Hover Colors */}
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-blue-600 hover:text-white transition duration-300 shadow-lg">
+              <a href="https://www.facebook.com/share/1CeXa6oBiy/?mibextid=wwXIfr" className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-blue-600 hover:text-white transition duration-300 shadow-lg">
                 <FaFacebookF />
               </a>
-              <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-pink-600 hover:text-white transition duration-300 shadow-lg">
+              <a href="https://www.instagram.com/amit_inpublic" className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-pink-600 hover:text-white transition duration-300 shadow-lg">
                 <FaInstagram />
               </a>
-              <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-blue-400 hover:text-white transition duration-300 shadow-lg">
+              <a href="https://x.com/Amitkum86150878" className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-blue-400 hover:text-white transition duration-300 shadow-lg">
                 <FaTwitter />
               </a>
             </div>

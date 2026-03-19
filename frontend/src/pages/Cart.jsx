@@ -1,6 +1,6 @@
 import { useCart } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
-import { FaTrash, FaArrowRight, FaMinus, FaPlus } from 'react-icons/fa'; // ✅ Icons Import kiye
+import { FaTrash, FaArrowRight, FaMinus, FaPlus, FaShoppingCart } from 'react-icons/fa';
 
 const Cart = () => {
   const { cart, removeFromCart, addToCart, decreaseQuantity } = useCart(); // ✅ Functions Import kiye
@@ -10,13 +10,23 @@ const Cart = () => {
 
   if (cart.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
-        <h2 className="text-2xl font-bold text-gray-400 mb-4">Your cart is empty ☹️</h2>
+      <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
+        <div className="bg-orange-100 p-8 rounded-full mb-6 relative">
+          <FaShoppingCart className="text-6xl text-orange-400" />
+          <span className="absolute top-2 right-2 flex h-4 w-4">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-orange-500"></span>
+          </span>
+        </div>
+        <h2 className="text-3xl font-bold text-gray-800 mb-2">Your cart feels light! 🛒</h2>
+        <p className="text-gray-500 mb-8 max-w-sm text-lg">
+          Add some delicious, homemade snacks to make your day sweeter.
+        </p>
         <button 
           onClick={() => navigate('/products')}
-          className="bg-orange-600 text-white px-6 py-2 rounded-full font-bold hover:bg-orange-700 transition"
+          className="bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
         >
-          Start Shopping
+          Explore Snacks
         </button>
       </div>
     );

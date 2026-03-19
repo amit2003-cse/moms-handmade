@@ -9,14 +9,18 @@ const Wishlist = () => {
   if (wishlist.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
-        <FaHeartBroken className="text-gray-300 text-6xl mb-4" />
-        <h2 className="text-2xl font-bold text-gray-400 mb-2">Your Wishlist is Empty</h2>
-        <p className="text-gray-500 mb-6">Save items you love here for later!</p>
+        <div className="bg-red-50 p-8 rounded-full mb-6">
+          <FaHeartBroken className="text-red-300 text-7xl" />
+        </div>
+        <h2 className="text-3xl font-bold text-gray-800 mb-2">No Favorites Yet ❤️</h2>
+        <p className="text-gray-500 mb-8 max-w-sm text-lg">
+          Hit the heart icon on your favorite snacks to save them here for later!
+        </p>
         <Link 
           to="/products"
-          className="bg-orange-600 text-white px-6 py-2 rounded-full font-bold hover:bg-orange-700 transition"
+          className="bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
         >
-          Browse Snacks
+          Discover Snacks
         </Link>
       </div>
     );

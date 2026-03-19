@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-orange-600 text-white shadow-lg sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-6">
+      <div className="container mx-auto px-4 py-3">
         
         {/* UPPER ROW: Logo + Actions */}
         <div className="flex justify-between items-center">
@@ -43,12 +43,12 @@ const Navbar = () => {
             {!isAdmin && (
               <>
                 {/* Wishlist */}
-                <Link to="/wishlist" className="hover:text-yellow-200 transition" title="Wishlist">
+                <Link to="/wishlist" className="hover:text-yellow-200 transition" aria-label="Wishlist" title="Wishlist">
                   <FaHeart size={22} />
                 </Link>
 
                 {/* Cart */}
-                <Link to="/cart" className="relative hover:text-yellow-200 transition">
+                <Link to="/cart" className="relative hover:text-yellow-200 transition" aria-label="Shopping Cart">
                   <FaShoppingCart size={22} />
                   {cart.length > 0 && (
                     <span className="absolute -top-2 -right-3 bg-white text-orange-600 text-xs font-bold px-1.5 py-0.5 rounded-full shadow-sm">
@@ -83,7 +83,7 @@ const Navbar = () => {
                   {isAdmin ? 'Admin' : user.name.split(' ')[0]}
                 </span>
 
-                <button onClick={handleLogout} className="text-white hover:text-red-200 transition" title="Logout">
+                <button onClick={handleLogout} className="text-white hover:text-red-200 transition" aria-label="Logout" title="Logout">
                   <FaSignOutAlt size={20} />
                 </button>
               </div>
@@ -109,7 +109,7 @@ const Navbar = () => {
               </Link>
             )}
 
-            <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none" aria-label="Toggle Mobile Menu">
               {isOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
             </button>
           </div>

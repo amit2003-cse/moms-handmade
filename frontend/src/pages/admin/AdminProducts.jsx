@@ -33,7 +33,7 @@ const AdminProducts = () => {
       await api.delete(`/admin/products/${id}`); 
       toast.success("Product Deleted");
       fetchProducts(); 
-    } catch (error) {
+    } catch {
       toast.error("Delete Failed");
     }
   };

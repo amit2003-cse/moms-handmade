@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import api from '../services/api';
 import ProductCard from '../components/ProductCard';
 import toast from 'react-hot-toast';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSearch, FaSortAmountDown, FaTimes } from 'react-icons/fa'; // FaFilter hata diya agar use nahi ho raha
 
@@ -123,7 +124,7 @@ const Products = () => {
               className="w-full pl-10 pr-10 py-2 border rounded-full focus:ring-2 focus:ring-orange-400 outline-none text-gray-700 bg-gray-50"
             />
             {searchQuery && (
-              <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-red-500">
+              <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-red-500" aria-label="Clear search">
                 <FaTimes />
               </button>
             )}

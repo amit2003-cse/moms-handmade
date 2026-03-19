@@ -47,7 +47,7 @@ const EditProduct = () => {
             '1kg': data.pricePerWeight['1kg'] || ''
           });
         }
-      } catch (error) {
+      } catch {
         toast.error("Failed to fetch product details");
         navigate('/admin/products');
       } finally {

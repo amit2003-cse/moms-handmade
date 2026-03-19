@@ -9,7 +9,7 @@ const AddProduct = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
-  // 1️⃣ Form State
+
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -18,7 +18,7 @@ const AddProduct = () => {
     tags: ''
   });
 
-  // 2️⃣ Pricing State
+
   const [prices, setPrices] = useState({
     '250g': '',
     '500g': '',

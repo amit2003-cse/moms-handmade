@@ -1,5 +1,6 @@
 import Order from "../models/Order.js";
 import Cart from "../models/Cart.js";
+import { sendOrderNotification } from "../utils/sendEmail.js";
 
 // @desc Place order (COD)
 export const placeOrder = async (req, res) => {
@@ -39,7 +40,7 @@ export const placeOrder = async (req, res) => {
     user: req.user._id,
     items: orderItems,
     deliveryDetails: {
-      fullName,
+      fullName, 
       mobile,
       address,
       pincode,
@@ -52,6 +53,9 @@ export const placeOrder = async (req, res) => {
   // Clear cart after order
   cart.items = [];
   await cart.save();
+
+  // Send Email Notification to Admin
+  await sendOrderNotification(order, "Cash on Delivery");
 
   res.status(201).json({
     message: "🎉 Order placed successfully!",

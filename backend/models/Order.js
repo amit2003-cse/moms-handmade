@@ -42,6 +42,15 @@ const orderSchema = new mongoose.Schema(
       default: "COD",
     },
 
+    paymentStatus: {
+      type: String,
+      default: "Pending",
+    },
+
+    razorpayOrderId: String,
+    razorpayPaymentId: String,
+    razorpaySignature: String,
+
     // ✅ FIX: Enum list badha di hai taaki Admin panel ke saare options chalein
     status: {
       type: String,
